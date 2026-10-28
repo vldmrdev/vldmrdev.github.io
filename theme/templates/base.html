@@ -1,0 +1,33 @@
+{% extends "!simple/base.html" %}
+
+{% block head %} {{ super() }}
+<link rel="stylesheet" href="{{ SITEURL }}/theme/css/rdark.css">
+<link rel="stylesheet" href="{{ SITEURL }}/theme/css/{{ CSS_FILE }}">
+
+{% if FEED_ATOM %}
+<link href="{{ SITEURL }}/{{ FEED_ATOM }}"
+      type="application/atom+xml"
+      rel="alternate"
+      title="{{ SITENAME }} Atom Feed">
+{% endif %}
+
+{% if FEED_RSS %}
+<link href="{{ SITEURL }}/{{ FEED_RSS }}"
+      type="application/rss+xml"
+      rel="alternate"
+      title="{{ SITENAME }} RSS Feed">
+{% endif %}
+
+<script>
+    window.MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']],
+            processEscapes: true
+        }
+    };
+</script>
+<script defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+
+
+{% endblock %}
