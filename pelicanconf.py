@@ -8,8 +8,6 @@ TIMEZONE = 'Europe/Moscow'
 
 DEFAULT_LANG = 'en'
 
-THEME_STATIC_DIR = "theme"
-
 ARTICLE_PATHS = ["ru", "en"]
 
 # DELETE_OUTPUT_DIRECTORY = True
