@@ -1,5 +1,5 @@
 AUTHOR = 'vldmrdev'
-SITENAME = 'Blog'
+SITENAME = 'Blog[under construction]'
 SITEURL = "https://vldmrdev.github.io"
 
 PATH = "content"

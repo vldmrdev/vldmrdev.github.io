@@ -68,6 +68,3 @@
 .highlight .vg { color: #ffffff} /* Name.Variable.Global */
 .highlight .vi { color: #ffffff} /* Name.Variable.Instance */
 .highlight .il { color: #8ae234} /* Literal.Number.Integer.Long */
-body {
-    outline: 5px solid red !important;
-}
