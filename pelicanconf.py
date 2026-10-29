@@ -14,7 +14,7 @@ THEME = "theme"
 
 # DELETE_OUTPUT_DIRECTORY = True
 
-CSS_FILE = "rdark.css"
+CSS_FILE = "main.css"
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
