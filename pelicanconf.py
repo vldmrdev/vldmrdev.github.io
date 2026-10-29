@@ -10,6 +10,12 @@ DEFAULT_LANG = 'en'
 
 THEME = "theme"
 
+ARTICLE_PATHS = ["ru", "en"]
+
+DELETE_OUTPUT_DIRECTORY = True
+
+CSS_FILE = "rdark.css"
+
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None
@@ -18,15 +24,15 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = [
-    ("You can modify those links in your config file", "#"),
-]
+# LINKS = [
+#     ("You can modify those links in your config file", "#"),
+# ]
 
 # Social widget
-SOCIAL = [
-    ("You can add links in your config file", "#"),
-    ("Another social link", "#"),
-]
+# SOCIAL = [
+#     ("You can add links in your config file", "#"),
+#     ("Another social link", "#"),
+# ]
 
 DEFAULT_PAGINATION = 7
 
