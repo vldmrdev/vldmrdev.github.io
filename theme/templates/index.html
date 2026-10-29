@@ -1,29 +1,62 @@
 {% extends "base.html" %}
+
 {% block content %}
-    {% block content_title %}
-        <h2>All articles</h2>
-    {% endblock %}
 
+<section class="post-list" aria-labelledby="post-list-title">
 
-    {% for article in articles_page.object_list %}
-        <article>
-            <header> <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2> </header>
-            <section>{{ article.summary }}</section>
-            <footer>
-                <p>Published: <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time></p>
-                {%- if article.authors %}
-                    <address>By
-                        {% for author in article.authors %}
-                            <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
-                        {% endfor %}
-                    </address>
-                {%- endif %}
-            </footer>
+    <div class="post-list__header">
+        <h1 id="post-list-title">Latest posts</h1>
+        <span class="post-list__count">[ {{ articles|length }} posts ]</span>
+    </div>
+
+    {% if articles %}
+
+    <div class="post-list__items">
+
+        {% for article in articles %}
+
+        <article class="post-list__item">
+
+            <time
+                    class="post-list__date"
+                    datetime="{{ article.date.isoformat() }}"
+            >{{ article.date.strftime('%Y-%m-%d') }}
+            </time>
+
+            <span class="post-list__lang">
+                [{{ article.lang|default(DEFAULT_LANG)|upper }}]
+            </span>
+
+            <div class="post-list__content">
+
+                <h2 class="post-list__title">
+                    <a href="{{ SITEURL }}/{{ article.url }}">
+                        {{ article.title }}
+                    </a>
+                </h2>
+
+                {% if article.summary %}
+                <div class="post-list__summary">
+                    {{ article.summary }}
+                </div>
+                {% endif %}
+
+            </div>
+
         </article>
-    {% endfor %}
 
-    {% if articles_page.has_other_pages() %}
-        {% include 'pagination.html' %}
+        {% endfor %}
+
+    </div>
+
+    {% else %}
+
+    <p class="post-list__empty">
+        No posts found.
+    </p>
+
     {% endif %}
+
+</section>
 
 {% endblock content %}

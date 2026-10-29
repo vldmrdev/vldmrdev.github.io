@@ -12,9 +12,21 @@ ARTICLE_PATHS = ["ru", "en"]
 
 THEME = "theme"
 
-# DELETE_OUTPUT_DIRECTORY = True
+DELETE_OUTPUT_DIRECTORY = True
 
 CSS_FILE = "terminal.css"
+
+PLUGINS = ["i18n_subsites"]
+
+JINJA_ENVIRONMENT = {
+    "extensions": ["jinja2.ext.i18n"],
+}
+
+I18N_SUBSITES = {
+    "ru": {
+        "SITENAME": "[under construction]",
+    },
+}
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -23,18 +35,8 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-# Blogroll
-# LINKS = [
-#     ("You can modify those links in your config file", "#"),
-# ]
-
-# Social widget
-# SOCIAL = [
-#     ("You can add links in your config file", "#"),
-#     ("Another social link", "#"),
-# ]
-
 DEFAULT_PAGINATION = 7
 
 # Uncomment following line if you want document-relative URLs when developing
-# RELATIVE_URLS = True
+# TODO: for localhost only! back to False!!!
+RELATIVE_URLS = True

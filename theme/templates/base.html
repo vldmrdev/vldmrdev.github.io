@@ -4,7 +4,6 @@
     {% block head %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="generator" content="Pelican">
 
     {% if SITESUBTITLE %}
@@ -64,7 +63,6 @@
 </head>
 
 <body>
-<!-- DEPLOY-TEST-2026 -->
 {% block body %}
 
 <div class="site-shell">
@@ -73,7 +71,6 @@
 
         {% block header %}
         <div class="site-brand">
-
             <a class="site-brand__link" href="{{ SITEURL }}/">
                 <span class="site-brand__prompt" aria-hidden="true">$</span>
                 <span class="site-brand__name">{{ SITENAME }}</span>
@@ -82,7 +79,6 @@
             {% if SITESUBTITLE %}
             <p class="site-brand__description">{{ SITESUBTITLE }}</p>
             {% endif %}
-
         </div>
         {% endblock header %}
 
@@ -106,12 +102,29 @@
                 {% endif %}
             </div>
 
-            <div class="site-nav__language" aria-label="Language selection">
-                {% block language_switch %}
-                <a href="{{ SITEURL }}/en/">EN</a>
-                <span aria-hidden="true">/</span>
-                <a href="{{ SITEURL }}/ru/">RU</a>
-                {% endblock language_switch %}
+            <div class="site-nav__controls">
+                <div class="site-nav__language" aria-label="Language selection">
+                    <a
+                            href="{{ SITEURL }}/en/"
+                            lang="en"
+                            {% if language is defined and language== 'en' %}
+                    aria-current="page"
+                    class="is-active"
+                    {% endif %}
+                    >EN</a>
+
+                    <span aria-hidden="true">|</span>
+
+                    <a
+                            href="{{ SITEURL }}/ru/"
+                            lang="ru"
+                            {% if language is defined and language== 'ru' %}
+                    aria-current="page"
+                    class="is-active"
+                    {% endif %}
+                    >RU</a>
+                </div>
+
             </div>
 
         </nav>
@@ -133,7 +146,7 @@
         {% block footer %}
         <p class="site-footer__status">
             <span aria-hidden="true">[ OK ]</span>
-            Generated with Pelican
+            © 2026
         </p>
         {% endblock footer %}
 
