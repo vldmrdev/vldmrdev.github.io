@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+<head>
+    {% block head %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Pelican">
+
+    {% if SITESUBTITLE %}
+    <meta name="description" content="{{ SITESUBTITLE }}">
+    {% endif %}
+
+    <title>{% block title %}{{ SITENAME|striptags }}{% endblock title %}</title>
+
+    {% if CSS_FILE %}
+    <link
+            rel="stylesheet"
+            href="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/css/{{ CSS_FILE }}"
+    >
+    {% endif %}
+
+    {% if STYLESHEET_URL %}
+    <link rel="stylesheet" href="{{ STYLESHEET_URL }}">
+    {% endif %}
+
+    {% if FEED_ALL_ATOM %}
+    <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="{{ SITENAME|striptags }} — Atom"
+            href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
+    >
+    {% endif %}
+
+    {% if FEED_ALL_RSS %}
+    <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="{{ SITENAME|striptags }} — RSS"
+            href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}"
+    >
+    {% endif %}
+
+    {% if FEED_ATOM %}
+    <link
+            rel="alternate"
+            type="application/atom+xml"
+            title="{{ SITENAME|striptags }} — Atom"
+            href="{{ FEED_DOMAIN }}/{% if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}"
+    >
+    {% endif %}
+
+    {% if FEED_RSS %}
+    <link
+            rel="alternate"
+            type="application/rss+xml"
+            title="{{ SITENAME|striptags }} — RSS"
+            href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}"
+    >
+    {% endif %}
+
+    {% endblock head %}
+</head>
+
+<body>
+{% block body %}
+
+<div class="site-shell">
+
+    <header class="site-header">
+
+        {% block header %}
+        <div class="site-brand">
+            <a class="site-brand__link" href="{{ SITEURL }}/">
+                <span class="site-brand__prompt" aria-hidden="true">$</span>
+                <span class="site-brand__name">{{ SITENAME }}</span>
+            </a>
+
+            {% if SITESUBTITLE %}
+            <p class="site-brand__description">{{ SITESUBTITLE }}</p>
+            {% endif %}
+        </div>
+        {% endblock header %}
+
+        {% block nav %}
+        <nav class="site-nav" aria-label="Main navigation">
+
+            <div class="site-nav__links">
+                <a href="{{ SITEURL }}/">[ home ]</a>
+
+                {% for title, link in MENUITEMS %}
+                <a href="{{ link }}">[ {{ title }} ]</a>
+                {% endfor %}
+
+                {% if DISPLAY_PAGES_ON_MENU %}
+                {% for p in pages %}
+                <a
+                        href="{{ SITEURL }}/{{ p.url }}"
+                        {% if p== page %}aria-current="page" {% endif %}
+                >[ {{ p.title }} ]</a>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+            <div class="site-nav__controls">
+                <div class="site-nav__language" aria-label="Language selection">
+                    <a
+                            href="{{ SITEURL }}/en/"
+                            lang="en"
+                            {% if language is defined and language== 'en' %}
+                    aria-current="page"
+                    class="is-active"
+                    {% endif %}
+                    >EN</a>
+
+                    <span aria-hidden="true">|</span>
+
+                    <a
+                            href="{{ SITEURL }}/ru/"
+                            lang="ru"
+                            {% if language is defined and language== 'ru' %}
+                    aria-current="page"
+                    class="is-active"
+                    {% endif %}
+                    >RU</a>
+                </div>
+
+            </div>
+
+        </nav>
+        {% endblock nav %}
+
+        <div class="site-divider" aria-hidden="true"></div>
+
+    </header>
+
+    <main class="site-main" id="main-content">
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <footer class="site-footer">
+
+        <div class="site-divider" aria-hidden="true"></div>
+
+        {% block footer %}
+        <p class="site-footer__status">
+            <span aria-hidden="true">[ OK ]</span>
+            © 2026
+        </p>
+        {% endblock footer %}
+
+    </footer>
+
+</div>
+
+{% endblock body %}
+</body>
+</html>
