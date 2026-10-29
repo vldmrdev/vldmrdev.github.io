@@ -10,6 +10,8 @@ DEFAULT_LANG = 'en'
 
 ARTICLE_PATHS = ["ru", "en"]
 
+THEME = "theme"
+
 # DELETE_OUTPUT_DIRECTORY = True
 
 CSS_FILE = "rdark.css"
