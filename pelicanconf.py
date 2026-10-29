@@ -8,11 +8,11 @@ TIMEZONE = 'Europe/Moscow'
 
 DEFAULT_LANG = 'en'
 
-THEME = "theme"
+THEME_STATIC_DIR = "theme"
 
 ARTICLE_PATHS = ["ru", "en"]
 
-DELETE_OUTPUT_DIRECTORY = True
+# DELETE_OUTPUT_DIRECTORY = True
 
 CSS_FILE = "rdark.css"
 

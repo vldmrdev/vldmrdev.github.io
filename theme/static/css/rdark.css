@@ -69,5 +69,5 @@
 .highlight .vi { color: #ffffff} /* Name.Variable.Instance */
 .highlight .il { color: #8ae234} /* Literal.Number.Integer.Long */
 body {
-    background: black !important;
+    outline: 5px solid red !important;
 }
